@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const Color primary = Colors.pink;
-  static const Color textColor = Colors.white;
+  static const Color primary = Colors.indigo;
+  static const Color textColor1 = Color(0xFFDDDDDD);
+  static const Color textColor2 = Color(0xFF222222);
 
   static final ThemeData lightTheme = ThemeData.light().copyWith(
     primaryColor: primary,
@@ -13,10 +14,10 @@ class AppTheme {
     ),
 
     textTheme: const TextTheme(
-      headline1: TextStyle(color: textColor, fontSize: 70),
-      headline2: TextStyle(color: textColor, fontSize: 70),
-      bodyText2: TextStyle(color: textColor),
-      subtitle1: TextStyle(color: textColor, fontSize: 60),
+      headline1: TextStyle(color: textColor1, fontSize: 70),
+      headline2: TextStyle(color: textColor1, fontSize: 70),
+      bodyText2: TextStyle(color: textColor1),
+      subtitle1: TextStyle(color: textColor1, fontSize: 60),
     ),
 
     scaffoldBackgroundColor: const Color(0xFF222222),

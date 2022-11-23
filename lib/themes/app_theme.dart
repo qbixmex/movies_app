@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static const Color primary = Colors.pink;
+  static const Color textColor = Colors.white;
 
   static final ThemeData lightTheme = ThemeData.light().copyWith(
     primaryColor: primary,
@@ -9,6 +10,13 @@ class AppTheme {
     appBarTheme: const AppBarTheme(
       color: primary,
       elevation: 0,
+    ),
+
+    textTheme: const TextTheme(
+      headline1: TextStyle(color: textColor, fontSize: 70),
+      headline2: TextStyle(color: textColor, fontSize: 70),
+      bodyText2: TextStyle(color: textColor),
+      subtitle1: TextStyle(color: textColor, fontSize: 60),
     ),
 
     scaffoldBackgroundColor: const Color(0xFF222222),

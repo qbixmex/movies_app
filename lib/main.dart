@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/router/app.router.dart';
 import 'package:movies_app/themes/themes.dart';
-// TODO PUT Route
-import 'package:movies_app/screens/screens.dart';
 
 void main() {
   runApp(const App());
@@ -14,8 +13,9 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Movies App',
       debugShowCheckedModeBanner: false,
+      initialRoute: AppRoutes.initialRoute,
+      routes: AppRoutes.getAppRoutes(),
       theme: AppTheme.lightTheme,
-      home: const HomeScreen(),
     );
   }
 }

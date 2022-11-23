@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/themes/themes.dart';
 
 void main() {
   runApp(const App());
@@ -11,9 +12,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Movies App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.pink,
-      ),
+      theme: AppTheme.lightTheme,
       home: Scaffold(
         appBar: AppBar(title: const Text('Mexflix')),
         body: const Center(child: Text('Mexflix'),)

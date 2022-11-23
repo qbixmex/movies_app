@@ -18,8 +18,6 @@ class HomeScreen extends StatelessWidget {
       body: ListView(
         children: const <Widget>[
           CardSwiper(title: 'Avengers'),
-          CardSwiper(title: 'Star Wars'),
-          CardSwiper(title: 'Black Panther'),  
         ]
       ),
     );

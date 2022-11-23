@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 publish_to: 'none'
 
-version: 1.4.0
+version: 1.5.0
 
 environment:
   sdk: '>=2.18.4 <3.0.0'
@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
+  card_swiper: ^2.0.4
 
 dev_dependencies:
   # flutter_test:
@@ -23,10 +24,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  # assets:
-  #   - images/car.jpeg
-  #   - images/cat.jpg
-  #   - images/background.gif
+  assets:
+    - assets/images/
 
   # fonts:
   #   - family: OpenSans

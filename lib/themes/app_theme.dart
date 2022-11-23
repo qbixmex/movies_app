@@ -16,6 +16,11 @@ class AppTheme {
     textTheme: const TextTheme(
       headline1: TextStyle(color: textColor1, fontSize: 70),
       headline2: TextStyle(color: textColor1, fontSize: 70),
+      headline3: TextStyle(
+        color: textColor1,
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      ),
       bodyText2: TextStyle(color: textColor1),
       subtitle1: TextStyle(color: textColor1, fontSize: 60),
     ),

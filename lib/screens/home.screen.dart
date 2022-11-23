@@ -15,10 +15,16 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView(
+      body: SingleChildScrollView(
+        child: Column(
         children: const <Widget>[
+          //* Main Cards
           CardSwiper(title: 'Avengers'),
-        ]
+
+          //* Movies Slider
+          MovieSlider(),
+        ],
+      ) 
       ),
     );
   }

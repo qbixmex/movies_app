@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/themes/themes.dart';
+// TODO PUT Route
+import 'package:movies_app/screens/screens.dart';
 
 void main() {
   runApp(const App());
@@ -13,10 +15,7 @@ class App extends StatelessWidget {
       title: 'Movies App',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Mexflix')),
-        body: const Center(child: Text('Mexflix'),)
-      ),
+      home: const HomeScreen(),
     );
   }
 }

@@ -5,9 +5,12 @@ class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Mexflix')),
-      body: const Center(
-        child: Text('Mexflix'),
+      appBar: AppBar(title: const Text('Mexflix - Details')),
+      body: Center(
+        child: Text(
+          'Details',
+          style: Theme.of(context).textTheme.headline2,
+        ),
       ),
     );
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/themes/themes.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

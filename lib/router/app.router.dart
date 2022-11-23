@@ -18,10 +18,10 @@ class AppRoutes {
 
     Map<String, Widget Function(BuildContext)> appRoutes = {};
 
-    appRoutes.addAll({ 'home': (context) => const HomeScreen() });
+    appRoutes.addAll({ 'home': (_) => const HomeScreen() });
 
     for(final option in menuOptions) {
-      appRoutes.addAll({ option.route: (context) => option.screen });
+      appRoutes.addAll({ option.route: (_) => option.screen });
     }
 
     return appRoutes;

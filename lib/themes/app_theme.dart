@@ -29,9 +29,18 @@ class AppTheme {
         fontSize: 26,
         fontWeight: FontWeight.bold,
       ),
-      bodyText2: TextStyle(color: textColor1),
+      bodyText1: TextStyle(color: textColor1),
+      bodyText2: TextStyle(
+        color: textColor1,
+        letterSpacing: 10.0,
+        wordSpacing: 10.0,
+      ),
       subtitle1: TextStyle(
         color: textColor3,
+        fontSize: 14,
+      ),
+      subtitle2: TextStyle(
+        color: textColor1,
         fontSize: 14,
       ),
       caption: TextStyle(color: textColor3),

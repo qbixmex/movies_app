@@ -14,6 +14,11 @@ class DetailsScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: <Widget>[
           _CustomAddBar(),
+          SliverList(
+            delegate: SliverChildListDelegate(<Widget>[
+              _PosterAndTitle(),
+            ]),
+          ),
         ],
       ),
     );
@@ -52,6 +57,67 @@ class _CustomAddBar extends StatelessWidget {
         ),
       ),
 
+    );
+  }
+}
+
+class _PosterAndTitle extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+
+    final textTheme = Theme.of(context).textTheme;
+
+    return Container(
+      margin: const EdgeInsets.only(top: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Row(children: <Widget>[
+        ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: const FadeInImage(
+            placeholder: AssetImage('assets/images/no-image.jpg'),
+            image: AssetImage('assets/images/200x300.png'),
+            height: 150,
+          ),
+        ),
+        const SizedBox(width: 20),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              'Hero Academy',
+              style: textTheme.headline5,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+            ),
+            Text(
+              '(僕のヒーローアカデミア)',
+              style: Theme.of(context).textTheme.subtitle1,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+            ),
+            const SizedBox(height: 15),
+            Row(children: const <Widget>[
+              Icon(Icons.star, color: AppTheme.iconColor1),
+              Icon(Icons.star, color: AppTheme.iconColor1),
+              Icon(Icons.star, color: AppTheme.iconColor1),
+              Icon(Icons.star_outline, color: AppTheme.iconColor1),
+              Icon(Icons.star_outline, color: AppTheme.iconColor1),
+            ]),
+            const SizedBox(height: 5),
+            Row(children: <Widget>[
+              Text(
+                'Average:',
+                style: textTheme.caption,
+              ),
+              const SizedBox(width: 5),
+              Text(
+                '3',
+                style: textTheme.caption,
+              ),
+            ]),
+          ],
+        )
+      ]),
     );
   }
 }

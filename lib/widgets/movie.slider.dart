@@ -52,7 +52,7 @@ class _MoviePost extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: const FadeInImage(
-                placeholder: AssetImage('assets/no-image.jpg'),
+                placeholder: AssetImage('assets/images/no-image.jpg'),
                 image: AssetImage('assets/images/300x400.png'),
                 width: 130,
                 height: 190,

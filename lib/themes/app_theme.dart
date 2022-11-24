@@ -4,6 +4,9 @@ class AppTheme {
   static const Color primary = Colors.indigo;
   static const Color textColor1 = Color(0xFFDDDDDD);
   static const Color textColor2 = Color(0xFF222222);
+  static const Color textColor3 = Color(0xFF666666);
+  static const Color iconColor1 = Colors.amber;
+  static const Color iconColor2 = Colors.pink;
 
   static final ThemeData lightTheme = ThemeData.light().copyWith(
     primaryColor: primary,
@@ -21,8 +24,17 @@ class AppTheme {
         fontSize: 20,
         fontWeight: FontWeight.bold,
       ),
+      headline5: TextStyle(
+        color: textColor1,
+        fontSize: 26,
+        fontWeight: FontWeight.bold,
+      ),
       bodyText2: TextStyle(color: textColor1),
-      subtitle1: TextStyle(color: textColor1, fontSize: 60),
+      subtitle1: TextStyle(
+        color: textColor3,
+        fontSize: 14,
+      ),
+      caption: TextStyle(color: textColor3),
     ),
 
     scaffoldBackgroundColor: const Color(0xFF222222),

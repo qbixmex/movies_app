@@ -11,29 +11,35 @@ class MoviesProvider extends ChangeNotifier {
   List<Movie> onDisplayMovies = [];
   List<Movie> popularMovies = [];
 
+  int _popularPage = 0;
+
   MoviesProvider({ this.page = 1 }) {
     getOnDisplayMovies();
     getPopularMovies();
   }
 
-  Future<void> getOnDisplayMovies() async {
+  Future<String> _getJsonData(String endpoint, [int page = 1]) async {
 
     final url = Uri.https(
       _baseURL,
-      '/3/movie/now_playing',
+      endpoint,
       {
         'api_key': _apiKey,
         'language': _language,
         'page': page.toString(),
       }
     );
+
     final response = await http.get(url);
 
-    if (response.statusCode != 200) {
-      return print('Error: Service unavailable!');
-    }
+    return response.body;
 
-    final nowPlayingResponse = NowPlayingResponse.fromJson(response.body);
+  }
+
+  Future<void> getOnDisplayMovies() async {    
+
+    final jsonData = await _getJsonData('/3/movie/now_playing');
+    final nowPlayingResponse = NowPlayingResponse.fromJson(jsonData);
 
     onDisplayMovies = nowPlayingResponse.results;
 
@@ -44,23 +50,10 @@ class MoviesProvider extends ChangeNotifier {
 
   Future<void> getPopularMovies() async {
 
-    final url = Uri.https(
-      _baseURL,
-      '/3/movie/popular',
-      {
-        'api_key': _apiKey,
-        'language': _language,
-        'page': page.toString(),
-      }
-    );
+    _popularPage++;
 
-    final response = await http.get(url);
-
-    if (response.statusCode != 200) {
-      return print('Error: Service unavailable!');
-    }
-
-    final popularResponse = PopularResponse.fromJson(response.body);
+    final jsonData = await _getJsonData('/3/movie/now_playing', _popularPage);
+    final popularResponse = PopularResponse.fromJson(jsonData);
 
     popularMovies = [
       ...popularMovies,

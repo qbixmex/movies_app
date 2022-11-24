@@ -8,10 +8,8 @@ class CardSwiper extends StatelessWidget {
 
   final List<Movie> _moviesList;
 
-  const CardSwiper({
-    super.key,
-    required List<Movie> movies,
-  }): _moviesList = movies;
+  const CardSwiper({super.key, required List<Movie> movies})
+    : _moviesList = movies;
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +40,9 @@ class CardSwiper extends StatelessWidget {
           final movie = _moviesList[i];
 
           return GestureDetector(
-            onTap: () => Navigator.pushNamed(
-              context,
-              'details',
-              arguments: 'movie-details',
-            ),
+            onTap: () {
+              Navigator.pushNamed(context, 'details', arguments: movie);
+            },
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: FadeInImage(

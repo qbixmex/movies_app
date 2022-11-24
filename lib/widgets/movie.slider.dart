@@ -83,7 +83,7 @@ class _MovieSliderState extends State<MovieSlider> {
                 scrollDirection: Axis.horizontal,
                 itemCount: widget._movies.length,
                 itemBuilder: (_, i) {
-                return _MoviePost(movie: widget._movies[i]);
+                  return _MoviePost(movie: widget._movies[i]);
                 },
               ),
             ),
@@ -97,9 +97,7 @@ class _MoviePost extends StatelessWidget {
 
   final Movie _movie;
 
-  const _MoviePost({
-    required Movie movie,
-  }): _movie = movie;
+  const _MoviePost({required Movie movie}) : _movie = movie;
 
   @override
   Widget build(BuildContext context) {
@@ -110,11 +108,7 @@ class _MoviePost extends StatelessWidget {
       child: Column(
         children: <Widget>[
           GestureDetector(
-            onTap: () => Navigator.pushNamed(
-              context,
-              'details',
-              arguments: 'movie-instance',
-            ),
+            onTap: () => Navigator.pushNamed(context, 'details', arguments: _movie),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: FadeInImage(

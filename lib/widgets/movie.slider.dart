@@ -2,25 +2,57 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/models/models.dart';
 import '../themes/themes.dart';
 
-class MovieSlider extends StatelessWidget {
+class MovieSlider extends StatefulWidget {
 
   final List<Movie> _movies;
   final String? _title;
+  final void Function() _onNextPage;
 
   const MovieSlider({
     super.key,
     required List<Movie> movies,
     String? title,
+    required void Function() onNextPage,
   }):
     _title = title,
-    _movies = movies;
+    _movies = movies,
+    _onNextPage = onNextPage;
+
+  @override
+  State<MovieSlider> createState() => _MovieSliderState();
+}
+
+class _MovieSliderState extends State<MovieSlider> {
+
+  final scrollController = ScrollController();
+  late double currentScrollValue;
+  late double maxScrollValue;
+
+   @override
+  void initState() {
+    super.initState();
+    scrollController.addListener(() {
+      currentScrollValue = scrollController.position.pixels;
+      maxScrollValue = scrollController.position.maxScrollExtent;
+
+      if (currentScrollValue >= maxScrollValue - 500) {
+        widget._onNextPage();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
 
     final size = MediaQuery.of(context).size;
 
-    if (_movies.isEmpty) {
+    if (widget._movies.isEmpty) {
       return SizedBox(
         width: double.infinity,
         height: size.height * 0.5,
@@ -36,21 +68,22 @@ class MovieSlider extends StatelessWidget {
         child: Column(        
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            if (_title != null)
+            if (widget._title != null)
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
-                  _title!,
+                  widget._title!,
                   style: Theme.of(context).textTheme.headline3,
                 ),
               ),
             const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
+                controller: scrollController,
                 scrollDirection: Axis.horizontal,
-                itemCount: _movies.length,
+                itemCount: widget._movies.length,
                 itemBuilder: (_, i) {
-                return _MoviePost(movie: _movies[i]);
+                return _MoviePost(movie: widget._movies[i]);
                 },
               ),
             ),

@@ -2,6 +2,8 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/models/models.dart';
 
+import '../themes/themes.dart';
+
 class CardSwiper extends StatelessWidget {
 
   final List<Movie> _moviesList;
@@ -15,6 +17,16 @@ class CardSwiper extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final size = MediaQuery.of(context).size;
+
+    if (_moviesList.isEmpty) {
+      return SizedBox(
+        width: double.infinity,
+        height: size.height * 0.5,
+        child: const Center(child: CircularProgressIndicator(
+          color: AppTheme.primary,
+        )),
+      );
+    }
 
     return SizedBox(
       width: double.infinity,

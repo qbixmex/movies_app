@@ -9,12 +9,15 @@ class MoviesProvider extends ChangeNotifier {
   final int page;
 
   List<Movie> onDisplayMovies = [];
+  List<Movie> popularMovies = [];
 
   MoviesProvider({ this.page = 1 }) {
     getOnDisplayMovies();
+    getPopularMovies();
   }
 
   Future<void> getOnDisplayMovies() async {
+
     final url = Uri.https(
       _baseURL,
       '/3/movie/now_playing',
@@ -33,6 +36,36 @@ class MoviesProvider extends ChangeNotifier {
     final nowPlayingResponse = NowPlayingResponse.fromJson(response.body);
 
     onDisplayMovies = nowPlayingResponse.results;
+
+    //* This notify and re-draw all necessary widgets.
+    notifyListeners();
+
+  }
+
+  Future<void> getPopularMovies() async {
+
+    final url = Uri.https(
+      _baseURL,
+      '/3/movie/popular',
+      {
+        'api_key': _apiKey,
+        'language': _language,
+        'page': page.toString(),
+      }
+    );
+
+    final response = await http.get(url);
+
+    if (response.statusCode != 200) {
+      return print('Error: Service unavailable!');
+    }
+
+    final popularResponse = PopularResponse.fromJson(response.body);
+
+    popularMovies = [
+      ...popularMovies,
+      ...popularResponse.results,
+    ];
 
     //* This notify and re-draw all necessary widgets.
     notifyListeners();

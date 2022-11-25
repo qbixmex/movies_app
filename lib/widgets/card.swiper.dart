@@ -28,7 +28,7 @@ class CardSwiper extends StatelessWidget {
 
     return SizedBox(
       width: double.infinity,
-      height: size.height * 0.5,
+      height: size.height * 0.45,
       child: Swiper(
         itemCount: _moviesList.length,
         layout: SwiperLayout.STACK,

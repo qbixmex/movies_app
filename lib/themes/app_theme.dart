@@ -17,8 +17,8 @@ class AppTheme {
     ),
 
     textTheme: const TextTheme(
-      headline1: TextStyle(color: textColor1, fontSize: 70),
-      headline2: TextStyle(color: textColor1, fontSize: 70),
+      headline1: TextStyle(color: textColor1, fontSize: 50),
+      headline2: TextStyle(color: textColor1, fontSize: 50),
       headline3: TextStyle(
         color: textColor1,
         fontSize: 20,
@@ -30,17 +30,14 @@ class AppTheme {
         fontWeight: FontWeight.bold,
       ),
       bodyText1: TextStyle(color: textColor1),
-      bodyText2: TextStyle(
-        color: textColor1,
-        letterSpacing: 10.0,
-        wordSpacing: 10.0,
-      ),
+      bodyText2: TextStyle(color: textColor1),
       subtitle1: TextStyle(
         color: textColor3,
         fontSize: 14,
+        fontWeight: FontWeight.bold,
       ),
       subtitle2: TextStyle(
-        color: textColor1,
+        color: textColor3,
         fontSize: 14,
       ),
       caption: TextStyle(color: textColor3),

@@ -26,8 +26,17 @@ class HomeScreen extends StatelessWidget {
         child: Column(
         children: <Widget>[
 
+          const SizedBox(height: 20),
+
+          Text(
+            'Displaying',
+            style: Theme.of(context).textTheme.headline2,
+          ),
+
           //* Main Cards
           CardSwiper(movies: moviesProvider.onDisplayMovies),
+
+          
 
           //* Movies Slider
           MovieSlider(

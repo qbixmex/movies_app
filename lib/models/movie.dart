@@ -36,13 +36,13 @@ class Movie {
   String get fullPosterImg {
     return (posterPath == null)
       ? 'https://i.stack.imgur.com/GNhxO.png'
-      : 'https://image.tmdb.org/t/p/w500${posterPath}';
+      : 'https://image.tmdb.org/t/p/w500$posterPath';
   }
 
   String get fullBackdropPath {
     return (posterPath == null)
       ? 'https://i.stack.imgur.com/GNhxO.png'
-      : 'https://image.tmdb.org/t/p/w500${backdropPath}';
+      : 'https://image.tmdb.org/t/p/w500$backdropPath';
   }
 
   factory Movie.fromJson(String str) {

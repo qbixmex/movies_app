@@ -29,6 +29,9 @@ class AppTheme {
         fontSize: 26,
         fontWeight: FontWeight.bold,
       ),
+      headline6: TextStyle(
+        color: textColor2,
+      ),
       bodyText1: TextStyle(color: textColor1),
       bodyText2: TextStyle(color: textColor1),
       subtitle1: TextStyle(
@@ -41,6 +44,10 @@ class AppTheme {
         fontSize: 14,
       ),
       caption: TextStyle(color: textColor3),
+    ),
+
+    listTileTheme: const ListTileThemeData(
+      textColor: textColor1,
     ),
 
     scaffoldBackgroundColor: const Color(0xFF222222),

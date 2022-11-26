@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/providers/movies.provider.dart';
 import 'package:movies_app/widgets/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:movies_app/search/search_delegate.dart';
 
 class HomeScreen extends StatelessWidget {
 
@@ -17,7 +18,12 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Mexflix'),
         actions: <Widget>[
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: MovieSearchDelegate(),
+              );
+            },
             icon: const Icon(Icons.search),
           ),
         ],

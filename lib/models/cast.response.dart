@@ -36,7 +36,7 @@ class Cast {
   get fullProfilePath {
     return (profilePath == null)
       ? 'https://i.stack.imgur.com/GNhxO.png'
-      : 'https://image.tmdb.org/t/p/w500${profilePath}';
+      : 'https://image.tmdb.org/t/p/w500$profilePath';
   }
 
   factory Cast.fromJson(String str) {

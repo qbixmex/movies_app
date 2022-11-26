@@ -16,6 +16,8 @@ class Movie {
   final double voteAverage;
   final int voteCount;
 
+  String? heroId;
+
   Movie({
     required this.adult,
     this.backdropPath,

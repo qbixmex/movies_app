@@ -82,8 +82,11 @@ class _MovieSliderState extends State<MovieSlider> {
                 controller: scrollController,
                 scrollDirection: Axis.horizontal,
                 itemCount: widget._movies.length,
-                itemBuilder: (_, i) {
-                  return _MoviePost(movie: widget._movies[i]);
+                itemBuilder: (_, index) {
+                  return _MoviePoster(
+                    movie: widget._movies[index],
+                    heroId: '${widget._title}-$index-${widget._movies[index].id}',
+                  );
                 },
               ),
             ),
@@ -93,14 +96,23 @@ class _MovieSliderState extends State<MovieSlider> {
   }
 }
 
-class _MoviePost extends StatelessWidget {
+class _MoviePoster extends StatelessWidget {
 
   final Movie _movie;
+  final String _heroId;
 
-  const _MoviePost({required Movie movie}) : _movie = movie;
+  const _MoviePoster({
+    required Movie movie,
+    required String heroId,
+  }):
+    _movie = movie,
+    _heroId = heroId;
 
   @override
   Widget build(BuildContext context) {
+
+    _movie.heroId = _heroId;
+
     return Container(
       width: 130,
       height: 190,
@@ -109,14 +121,17 @@ class _MoviePost extends StatelessWidget {
         children: <Widget>[
           GestureDetector(
             onTap: () => Navigator.pushNamed(context, 'details', arguments: _movie),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: FadeInImage(
-                placeholder: const AssetImage('assets/images/no-image.jpg'),
-                image: NetworkImage(_movie.fullPosterImg),
-                width: 130,
-                height: 190,
-                fit: BoxFit.cover,
+            child: Hero(
+              tag: _movie.heroId!,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: FadeInImage(
+                  placeholder: const AssetImage('assets/images/no-image.jpg'),
+                  image: NetworkImage(_movie.fullPosterImg),
+                  width: 130,
+                  height: 190,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),

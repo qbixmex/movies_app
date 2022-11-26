@@ -28,11 +28,4 @@ class AppRoutes {
 
   }
 
-  // TODO: Dynamic Routes
-  // static Route<dynamic> onGenerateRoute(RouteSettings settings) {
-  //   return MaterialPageRoute(
-  //     builder: (context) => const SomeScreen(),
-  //   );
-  // }
-
 }
